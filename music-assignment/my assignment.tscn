@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://n6xh2lrpw1q"]
+
+[ext_resource type="Script" path="res://audio_demo.gd" id="1_cq1em"]
+[ext_resource type="AudioStream" uid="uid://bukjf6mril1c0" path="res://audio/Werehog Reacts To Bryan.mp3" id="2_wj0nr"]
+
+[node name="audio_demo" type="Node2D"]
+script = ExtResource("1_cq1em")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_wj0nr")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 472.0
+offset_top = 253.0
+offset_right = 607.0
+offset_bottom = 284.0
+text = "Play My Sorrows
+"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
