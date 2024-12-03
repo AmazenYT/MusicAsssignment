@@ -1,20 +1,102 @@
-[gd_scene load_steps=3 format=3 uid="uid://n6xh2lrpw1q"]
+[gd_scene load_steps=11 format=3 uid="uid://n6xh2lrpw1q"]
 
 [ext_resource type="Script" path="res://audio_demo.gd" id="1_cq1em"]
-[ext_resource type="AudioStream" uid="uid://bukjf6mril1c0" path="res://audio/Werehog Reacts To Bryan.mp3" id="2_wj0nr"]
+[ext_resource type="AudioStream" uid="uid://d1k50hob5w6x3" path="res://audio/LiveAndLearn.mp3" id="2_lhaw5"]
+[ext_resource type="Script" path="res://h_slider.gd" id="3_7il33"]
+[ext_resource type="Script" path="res://pitch_slider.gd" id="3_bjhvu"]
+[ext_resource type="AudioStream" uid="uid://bg22w5lejbhew" path="res://audio/AllHailShadow.mp3" id="3_j72lr"]
+[ext_resource type="Script" path="res://volume_slider.gd" id="5_ecdpe"]
+[ext_resource type="Script" path="res://pitch_slider2.gd" id="6_6yi0c"]
+
+[sub_resource type="Theme" id="Theme_pej6e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctxxn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yshnt"]
 
 [node name="audio_demo" type="Node2D"]
 script = ExtResource("1_cq1em")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_wj0nr")
+[node name="LiveAndLearn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_lhaw5")
+bus = &"LiveAndLearn"
+
+[node name="AllHailShadow" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_j72lr")
+bus = &"AllHailShadow"
 
 [node name="Button" type="Button" parent="."]
-offset_left = 472.0
-offset_top = 253.0
-offset_right = 607.0
-offset_bottom = 284.0
-text = "Play My Sorrows
+offset_left = 12.0
+offset_top = 113.0
+offset_right = 193.0
+offset_bottom = 185.0
+theme = SubResource("Theme_pej6e")
+text = "Live and Learn
 "
 
+[node name="VolumeSlider" type="HSlider" parent="Button"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 59.0
+offset_right = 159.0
+offset_bottom = 137.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_7il33")
+bus_name = "LiveAndLearn"
+
+[node name="PitchSlider" type="HSlider" parent="Button"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 109.0
+offset_right = 158.0
+offset_bottom = 187.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+value = 0.5
+script = ExtResource("3_bjhvu")
+audio_player_path = NodePath("../../LiveAndLearn")
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 328.0
+offset_top = 119.0
+offset_right = 509.0
+offset_bottom = 191.0
+theme = SubResource("Theme_pej6e")
+text = "All Hail Shadow
+"
+
+[node name="VolumeSlider" type="HSlider" parent="Button2"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 59.0
+offset_right = 159.0
+offset_bottom = 137.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+script = ExtResource("5_ecdpe")
+bus_name = "AllHailShadow"
+
+[node name="PitchSlider" type="HSlider" parent="Button2"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 109.0
+offset_right = 158.0
+offset_bottom = 187.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+value = 0.5
+script = ExtResource("6_6yi0c")
+audio_player_path = NodePath("../../AllHailShadow")
+
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Button2" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
