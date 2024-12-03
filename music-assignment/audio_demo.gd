@@ -1,41 +1,73 @@
 extends Node2D
 
-# Called when the node enters the scene tree for the first time.
+# A list of song nodes for easier management
+var songs: Array
+var buttons: Array
+
 func _ready() -> void:
-	pass # Replace with function body.
+	# Initialize songs and their corresponding buttons
+	songs = [
+		$LiveAndLearn,
+		$AllHailShadow,
+		$HisWorld,
+		$ImHere,
+		$EndlessPossibility,
+		$FistBump,
+		$WhatImMadeOf,
+		$"Super Sonic Racing",
+		$Everything
+	]
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass # Replace with function body.
+	buttons = [
+		$Button,
+		$Button2,
+		$Button3,
+		$Button4,
+		$Button5,
+		$Button6,
+		$Button7,
+		$Button8,
+		$Button9
+	]
 
-func _on_button_button_down() -> void:
-	if $LiveAndLearn.playing:
-		# Stop LiveAndLearn and change button text to "Play"
-		$LiveAndLearn.stop()
-		$Button.text = "Play"
+# Stop all songs
+func stop_all_songs() -> void:
+	for song in songs:
+		if song is AudioStreamPlayer2D and song.playing:
+			song.stop()
+
+# Toggle a song and ensure only one plays at a time
+func toggle_song(song: AudioStreamPlayer2D) -> void:
+	if song.playing:
+		song.stop()
 	else:
-		# If AllHailShadow is playing, stop it before playing LiveAndLearn
-		if $AllHailShadow.playing:
-			$AllHailShadow.stop()
-			$Button2.text = "Play"  # Update the button for AllHailShadow
-		# Play LiveAndLearn and change button text to "Stop"
-		$LiveAndLearn.play()
-		$Button.text = "Stop"
+		stop_all_songs()
+		song.play()
 
-func _on_h_slider_value_changed(value: float) -> void:
-	$LiveAndLearn.pitch_scale = value
-	pass # Replace with function body.
+# Button signal handlers
+func _on_button_button_down() -> void:
+	toggle_song($LiveAndLearn)
 
 func _on_button_2_button_down() -> void:
-	if $AllHailShadow.playing:
-		# If AllHailShadow is playing, stop it
-		$AllHailShadow.stop()
-		$Button2.text = "Play"
-	else:
-		# If LiveAndLearn is playing, stop it first before playing AllHailShadow
-		if $LiveAndLearn.playing:
-			$LiveAndLearn.stop()
-			$Button.text = "Play"  # Update the button for LiveAndLearn
-		# Now play AllHailShadow and change button text to "Stop"
-		$AllHailShadow.play()
-		$Button2.text = "Stop"
+	toggle_song($AllHailShadow)
+
+func _on_button_3_button_down() -> void:
+	toggle_song($HisWorld)
+
+func _on_button_4_button_down() -> void:
+	toggle_song($ImHere)
+
+func _on_button_5_button_down() -> void:
+	toggle_song($EndlessPossibility)
+
+func _on_button_6_button_down() -> void:
+	toggle_song($FistBump)
+
+func _on_button_7_button_down() -> void:
+	toggle_song($WhatImMadeOf)
+
+func _on_button_8_button_down() -> void:
+	toggle_song($"Super Sonic Racing")
+
+func _on_button_9_button_down() -> void:
+	toggle_song($Everything)

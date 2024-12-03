@@ -1,14 +1,56 @@
-[gd_scene load_steps=11 format=3 uid="uid://n6xh2lrpw1q"]
+[gd_scene load_steps=37 format=3 uid="uid://n6xh2lrpw1q"]
 
 [ext_resource type="Script" path="res://audio_demo.gd" id="1_cq1em"]
+[ext_resource type="Texture2D" uid="uid://djox6lcibeyhb" path="res://artwork-440x220.jpg" id="2_alrua"]
 [ext_resource type="AudioStream" uid="uid://d1k50hob5w6x3" path="res://audio/LiveAndLearn.mp3" id="2_lhaw5"]
 [ext_resource type="Script" path="res://h_slider.gd" id="3_7il33"]
 [ext_resource type="Script" path="res://pitch_slider.gd" id="3_bjhvu"]
 [ext_resource type="AudioStream" uid="uid://bg22w5lejbhew" path="res://audio/AllHailShadow.mp3" id="3_j72lr"]
+[ext_resource type="AudioStream" uid="uid://bghdfb2xb6cl5" path="res://audio/HisWorld.mp3" id="4_0j1ts"]
 [ext_resource type="Script" path="res://volume_slider.gd" id="5_ecdpe"]
+[ext_resource type="AudioStream" uid="uid://wk07pjxy7o1b" path="res://audio/ImHere.mp3" id="5_uin4x"]
 [ext_resource type="Script" path="res://pitch_slider2.gd" id="6_6yi0c"]
+[ext_resource type="AudioStream" uid="uid://bc81t104uh84t" path="res://audio/EndlessPossibility.mp3" id="6_e4vh2"]
+[ext_resource type="AudioStream" uid="uid://hxxmji8715v8" path="res://audio/FistBumpRemix.mp3" id="7_ovlmy"]
+[ext_resource type="AudioStream" uid="uid://dd1iqoql1ajd0" path="res://audio/WhatImMadeOf.mp3" id="8_3l2kg"]
+[ext_resource type="AudioStream" uid="uid://dsek65uglr83t" path="res://audio/Super Sonic Racing.mp3" id="9_8tg6h"]
+[ext_resource type="AudioStream" uid="uid://cp1wltafdyd8e" path="res://audio/Everything.mp3" id="10_mgrie"]
+[ext_resource type="Script" path="res://Everything_Volume.gd" id="14_vyxpf"]
+[ext_resource type="Script" path="res://Everything_Pitch.gd" id="15_vgat8"]
+[ext_resource type="Script" path="res://SSR_Volume.gd" id="16_2vxji"]
+[ext_resource type="Script" path="res://SSR_Pitch.gd" id="17_tq5bq"]
+[ext_resource type="Script" path="res://WIMO_Volume.gd" id="18_g88mg"]
+[ext_resource type="Script" path="res://WIMO_Pitch.gd" id="19_6mhoa"]
+[ext_resource type="Script" path="res://ImHere_Volume.gd" id="20_afdfq"]
+[ext_resource type="Script" path="res://ImHere_Pitch.gd" id="21_eoxnd"]
+[ext_resource type="Script" path="res://EndlessPossibility_Volume.gd" id="22_d7yix"]
+[ext_resource type="Script" path="res://EndlessPossibility_Pitch.gd" id="23_8icwf"]
+[ext_resource type="Script" path="res://FistBump_Volume.gd" id="24_oox38"]
+[ext_resource type="Script" path="res://FistBump_Pitch.gd" id="25_vjym6"]
+[ext_resource type="Script" path="res://HisWorld_Volume.gd" id="26_fmok3"]
+[ext_resource type="Script" path="res://HisWorld_Pitch.gd" id="27_x0oy0"]
+
+[sub_resource type="SystemFont" id="SystemFont_2hu4a"]
+font_names = PackedStringArray("AniMe Matrix - MB_EN")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cs3m"]
+bg_color = Color(0.0628661, 0.479531, 0.798414, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_pej6e"]
+Button/fonts/font = SubResource("SystemFont_2hu4a")
+Button/styles/disabled = null
+Button/styles/normal = SubResource("StyleBoxFlat_8cs3m")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yjqyt"]
+bg_color = Color(0.774419, 0.545926, 0.31272, 1)
+
+[sub_resource type="Theme" id="Theme_fvyab"]
+/styles/disabled = SubResource("StyleBoxFlat_yjqyt")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctxxn"]
 
@@ -17,22 +59,59 @@
 [node name="audio_demo" type="Node2D"]
 script = ExtResource("1_cq1em")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -573.0
+offset_top = -326.0
+offset_right = 586.0
+offset_bottom = 317.0
+texture = ExtResource("2_alrua")
+
 [node name="LiveAndLearn" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_lhaw5")
 bus = &"LiveAndLearn"
+
+[node name="HisWorld" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0j1ts")
+bus = &"HisWorld"
+
+[node name="ImHere" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_uin4x")
+bus = &"ImHere"
+
+[node name="EndlessPossibility" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_e4vh2")
+bus = &"EndlessPossibility"
+
+[node name="FistBump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ovlmy")
+bus = &"FistBump"
+
+[node name="WhatImMadeOf" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_3l2kg")
+bus = &"WhatImMadeOf"
+
+[node name="Super Sonic Racing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_8tg6h")
+bus = &"SuperSonicRacing"
+
+[node name="Everything" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -1)
+stream = ExtResource("10_mgrie")
+bus = &"Everything"
 
 [node name="AllHailShadow" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_j72lr")
 bus = &"AllHailShadow"
 
 [node name="Button" type="Button" parent="."]
-offset_left = 12.0
-offset_top = 113.0
-offset_right = 193.0
-offset_bottom = 185.0
+offset_left = -556.0
+offset_top = -326.0
+offset_right = -375.0
+offset_bottom = -254.0
 theme = SubResource("Theme_pej6e")
 text = "Live and Learn
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="VolumeSlider" type="HSlider" parent="Button"]
 layout_mode = 0
@@ -40,12 +119,14 @@ offset_left = 27.0
 offset_top = 59.0
 offset_right = 159.0
 offset_bottom = 137.0
+theme = SubResource("Theme_fvyab")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
 max_value = 1.0
 step = 0.001
 script = ExtResource("3_7il33")
 bus_name = "LiveAndLearn"
+metadata/_edit_use_anchors_ = true
 
 [node name="PitchSlider" type="HSlider" parent="Button"]
 layout_mode = 0
@@ -60,15 +141,290 @@ step = 0.001
 value = 0.5
 script = ExtResource("3_bjhvu")
 audio_player_path = NodePath("../../LiveAndLearn")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button9" type="Button" parent="."]
+offset_left = 388.0
+offset_top = 154.0
+offset_right = 569.0
+offset_bottom = 226.0
+theme = SubResource("Theme_pej6e")
+text = "eVERYTHING
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="VolumeSlider" type="HSlider" parent="Button9"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 59.0
+offset_right = 159.0
+offset_bottom = 137.0
+theme = SubResource("Theme_fvyab")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+script = ExtResource("14_vyxpf")
+metadata/_edit_use_anchors_ = true
+
+[node name="PitchSlider" type="HSlider" parent="Button9"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 109.0
+offset_right = 158.0
+offset_bottom = 187.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+value = 0.5
+script = ExtResource("15_vgat8")
+audio_player_path = NodePath("../../Everything")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button8" type="Button" parent="."]
+offset_left = -96.0
+offset_top = 158.0
+offset_right = 126.0
+offset_bottom = 230.0
+theme = SubResource("Theme_pej6e")
+text = "Super Sonic racing
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="VolumeSlider" type="HSlider" parent="Button8"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 59.0
+offset_right = 159.0
+offset_bottom = 137.0
+theme = SubResource("Theme_fvyab")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+script = ExtResource("16_2vxji")
+metadata/_edit_use_anchors_ = true
+
+[node name="PitchSlider" type="HSlider" parent="Button8"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 109.0
+offset_right = 158.0
+offset_bottom = 187.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+value = 0.5
+script = ExtResource("17_tq5bq")
+audio_player_path = NodePath("../../Super Sonic Racing")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button7" type="Button" parent="."]
+offset_left = -562.0
+offset_top = 149.0
+offset_right = -371.0
+offset_bottom = 221.0
+theme = SubResource("Theme_pej6e")
+text = "What I'm Made of
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="VolumeSlider" type="HSlider" parent="Button7"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 59.0
+offset_right = 159.0
+offset_bottom = 137.0
+theme = SubResource("Theme_fvyab")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+script = ExtResource("18_g88mg")
+metadata/_edit_use_anchors_ = true
+
+[node name="PitchSlider" type="HSlider" parent="Button7"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 109.0
+offset_right = 158.0
+offset_bottom = 187.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+value = 0.5
+script = ExtResource("19_6mhoa")
+audio_player_path = NodePath("../../WhatImMadeOf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button4" type="Button" parent="."]
+offset_left = -560.0
+offset_top = -67.0
+offset_right = -379.0
+offset_bottom = 5.0
+theme = SubResource("Theme_pej6e")
+text = "I'm Here
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="VolumeSlider" type="HSlider" parent="Button4"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 59.0
+offset_right = 159.0
+offset_bottom = 137.0
+theme = SubResource("Theme_fvyab")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+script = ExtResource("20_afdfq")
+metadata/_edit_use_anchors_ = true
+
+[node name="PitchSlider" type="HSlider" parent="Button4"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 109.0
+offset_right = 158.0
+offset_bottom = 187.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+value = 0.5
+script = ExtResource("21_eoxnd")
+audio_player_path = NodePath("../../ImHere")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button5" type="Button" parent="."]
+offset_left = -107.0
+offset_top = -63.0
+offset_right = 123.0
+offset_bottom = 9.0
+theme = SubResource("Theme_pej6e")
+text = "Endless Possibility
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="VolumeSlider" type="HSlider" parent="Button5"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 59.0
+offset_right = 159.0
+offset_bottom = 137.0
+theme = SubResource("Theme_fvyab")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+script = ExtResource("22_d7yix")
+metadata/_edit_use_anchors_ = true
+
+[node name="PitchSlider" type="HSlider" parent="Button5"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 109.0
+offset_right = 158.0
+offset_bottom = 187.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+value = 0.5
+script = ExtResource("23_8icwf")
+audio_player_path = NodePath("../../EndlessPossibility")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button6" type="Button" parent="."]
+offset_left = 354.0
+offset_top = -65.0
+offset_right = 584.0
+offset_bottom = 7.0
+theme = SubResource("Theme_pej6e")
+text = "Fist Bump - Remix
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="VolumeSlider" type="HSlider" parent="Button6"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 59.0
+offset_right = 159.0
+offset_bottom = 137.0
+theme = SubResource("Theme_fvyab")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+script = ExtResource("24_oox38")
+bus_name = "FistBump"
+metadata/_edit_use_anchors_ = true
+
+[node name="PitchSlider" type="HSlider" parent="Button6"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 109.0
+offset_right = 158.0
+offset_bottom = 187.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+value = 0.5
+script = ExtResource("25_vjym6")
+audio_player_path = NodePath("../../FistBump")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 378.0
+offset_top = -323.0
+offset_right = 559.0
+offset_bottom = -251.0
+theme = SubResource("Theme_pej6e")
+text = "His World"
+metadata/_edit_use_anchors_ = true
+
+[node name="VolumeSlider" type="HSlider" parent="Button3"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 59.0
+offset_right = 159.0
+offset_bottom = 137.0
+theme = SubResource("Theme_fvyab")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+script = ExtResource("26_fmok3")
+metadata/_edit_use_anchors_ = true
+
+[node name="PitchSlider" type="HSlider" parent="Button3"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 109.0
+offset_right = 158.0
+offset_bottom = 187.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ctxxn")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_yshnt")
+max_value = 1.0
+step = 0.001
+value = 0.5
+script = ExtResource("27_x0oy0")
+audio_player_path = NodePath("../../HisWorld")
+metadata/_edit_use_anchors_ = true
 
 [node name="Button2" type="Button" parent="."]
-offset_left = 328.0
-offset_top = 119.0
-offset_right = 509.0
-offset_bottom = 191.0
+offset_left = -104.0
+offset_top = -323.0
+offset_right = 81.0
+offset_bottom = -251.0
 theme = SubResource("Theme_pej6e")
 text = "All Hail Shadow
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="VolumeSlider" type="HSlider" parent="Button2"]
 layout_mode = 0
@@ -82,6 +438,7 @@ max_value = 1.0
 step = 0.001
 script = ExtResource("5_ecdpe")
 bus_name = "AllHailShadow"
+metadata/_edit_use_anchors_ = true
 
 [node name="PitchSlider" type="HSlider" parent="Button2"]
 layout_mode = 0
@@ -96,7 +453,16 @@ step = 0.001
 value = 0.5
 script = ExtResource("6_6yi0c")
 audio_player_path = NodePath("../../AllHailShadow")
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="Button2" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Button9" to="." method="_on_button_9_button_down"]
+[connection signal="button_down" from="Button8" to="." method="_on_button_8_button_down"]
+[connection signal="button_down" from="Button7" to="." method="_on_button_7_button_down"]
+[connection signal="button_down" from="Button4" to="." method="_on_button_4_button_down"]
+[connection signal="button_down" from="Button5" to="." method="_on_button_5_button_down"]
+[connection signal="button_down" from="Button6" to="." method="_on_button_6_button_down"]
+[connection signal="button_down" from="Button3" to="." method="_on_button_3_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]

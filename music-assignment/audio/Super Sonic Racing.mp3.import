@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsek65uglr83t"
+path="res://.godot/imported/Super Sonic Racing.mp3-cfc729f88344e122c719f9de2f7539b8.mp3str"
+
+[deps]
+
+source_file="res://audio/Super Sonic Racing.mp3"
+dest_files=["res://.godot/imported/Super Sonic Racing.mp3-cfc729f88344e122c719f9de2f7539b8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
